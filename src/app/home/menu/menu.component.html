@@ -1,0 +1,6 @@
+<div [ngClass]="{ 'active-menu': mostraMenu }">
+  <div class="menu-bar">
+    <i id="icon-close" class="pi pi-times" (click)="abreMenu()"></i>
+    <ng-content></ng-content>
+  </div>
+</div>
