@@ -1,7 +1,7 @@
 .navbar {
   background: rgb(123, 61, 173);
   margin: 0;
-  padding: 1em;
+  padding: 5px;
 }
 
 .navbar-menu-icon{
@@ -14,8 +14,14 @@
   display: flex;
   align-items: center;
 }
+.navbar-menu h1{
+  color: white;
+  margin-left: 10em;
+}
+
 .navbar h1 {
   user-select: none;
+
 }
 
 .lista-menu{
