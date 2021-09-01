@@ -1,0 +1,35 @@
+.navbar {
+  background: rgb(123, 61, 173);
+  margin: 0;
+  padding: 1em;
+}
+
+.navbar-menu-icon{
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.navbar-menu{
+  display: flex;
+  align-items: center;
+}
+.navbar h1 {
+  user-select: none;
+}
+
+.lista-menu{
+  list-style-type: none;
+  margin-top: 30%;
+}
+
+.lista-menu li {
+  padding-top: 20%;
+}
+ .lista-menu a {
+   font-size: 20px;
+   font-weight: bold;
+   list-style: none;
+   color: white;
+   text-decoration: none;
+ }

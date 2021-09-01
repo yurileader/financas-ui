@@ -1,0 +1,30 @@
+<header>
+  <nav class="navbar">
+    <div class="container">
+      <div class="p-grid">
+        <div class="p-col-12">
+          <div class="navbar-menu">
+            <a>
+              <i
+                class="navbar-menu-icon pi pi-bars"
+                (click)="menu.abreMenu()"
+              ></i>
+            </a>
+            <h1>Financas</h1>
+          </div>
+
+          <app-menu #menu>
+            <ul class="lista-menu">
+              <li>
+                <a [routerLink]="['pessoa', 'novo']">Pessoa</a>
+              </li>
+              <li>
+                <a [routerLink]="['lancamento', 'novo']">Lançamento</a>
+              </li>
+            </ul>
+          </app-menu>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
