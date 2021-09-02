@@ -1,41 +1,33 @@
 .navbar {
   background: rgb(123, 61, 173);
   margin: 0;
-  padding: 5px;
 }
 
-.navbar-menu-icon{
+.navbar-menu-icon {
+  font-size: 2rem;
   color: white;
   cursor: pointer;
-  padding: 10px;
 }
 
-.navbar-menu{
+.navbar-menu {
   display: flex;
   align-items: center;
 }
-.navbar-menu h1{
+.navbar-menu h1 {
   color: white;
-  margin-left: 10em;
-}
-
-.navbar h1 {
+  margin-left: 40%;
   user-select: none;
-
+  font-size: 2rem;
 }
 
-.lista-menu{
+.lista-menu {
   list-style-type: none;
   margin-top: 30%;
 }
 
-.lista-menu li {
-  padding-top: 20%;
+.lista-menu a {
+  font-weight: bold;
+  list-style: none;
+  color: white;
+  text-decoration: none;
 }
- .lista-menu a {
-   font-size: 20px;
-   font-weight: bold;
-   list-style: none;
-   color: white;
-   text-decoration: none;
- }
