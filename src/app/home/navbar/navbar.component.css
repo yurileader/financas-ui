@@ -1,6 +1,13 @@
 .navbar {
-  background: rgb(123, 61, 173);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 16%,
+    rgba(0, 212, 255, 1) 100%
+  );
   margin: 0;
+  box-shadow: 10px 5px 5 px black;
 }
 
 .navbar-menu-icon {
@@ -25,6 +32,10 @@
   margin-top: 30%;
 }
 
+.lista-menu li {
+  margin-top: 3em;
+  margin-left: 3em;
+}
 .lista-menu a {
   font-weight: bold;
   list-style: none;
