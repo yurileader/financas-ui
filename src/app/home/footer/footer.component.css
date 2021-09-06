@@ -1,5 +1,5 @@
 .footer {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgb(27, 43, 60);
   height: 50px;
   position: fixed;
   bottom: 0px;
@@ -21,6 +21,7 @@
 }
 
 .fixed-footer p {
+  color : white;
   font-size: 20px;
 }
 
