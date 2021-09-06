@@ -3,6 +3,7 @@ import { LancamentosService } from './../../../core/services/lancamentos.service
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Lancamentos } from './../../../core/models/lancamento';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-lancamento',
@@ -12,13 +13,13 @@ import { Lancamentos } from './../../../core/models/lancamento';
 export class LancamentoComponent implements OnInit {
   lancamentos!: Lancamentos;
 
-  constructor(private lancamentosService: LancamentosService) {}
+  constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.lancamentosService.listaLancamento().subscribe(
-      (lancamento) => {
-        this.lancamentos = lancamento.content;
-        console.log(this.lancamentos);
+    this.activatedRoute.params.subscribe(
+      (param) => {
+        this.lancamentos =
+          this.activatedRoute.snapshot.data['lancamentos'].content;
       },
       (error) => console.log('error', error)
     );
