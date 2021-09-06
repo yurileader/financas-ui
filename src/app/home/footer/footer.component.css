@@ -1,8 +1,19 @@
+.footer {
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 50px;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
+}
+
 .fixed-footer {
-  margin-left: 40%;
+  margin-left: 37%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  position: fixed;
 }
 
 .fixed-footer a {
@@ -13,14 +24,7 @@
   font-size: 20px;
 }
 
-.linkedin{
+.linkedin {
+  margin-top: 5px;
   width: 40px;
-}
-
-
-.footer{
-  background-color: rgba(0, 0, 0, 0.2);
-  left: 0;
-  right: 0;
-  bottom: 0;
 }
