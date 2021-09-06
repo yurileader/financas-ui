@@ -10,7 +10,6 @@ import { Lancamentos } from './../../../core/models/lancamento';
   styleUrls: ['./lancamento.component.css'],
 })
 export class LancamentoComponent implements OnInit {
-  lancamentos$?: Observable<any>;
   lancamentos!: Lancamentos;
 
   constructor(private lancamentosService: LancamentosService) {}
