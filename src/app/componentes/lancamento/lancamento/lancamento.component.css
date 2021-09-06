@@ -14,19 +14,13 @@
   text-align: center;
 }
 
-.loading  {
+.loading {
   font-size: 2em !important;
 }
-.loading i  {
+.loading i {
   font-size: 1em !important;
 }
 
-
-
-.tabelas p-table{
-    width: 200px;
-}
-
-.input-filtro :focus{
-  outline: 5px solid orange !important;
+.btn-novo-lancamento {
+  float: right
 }

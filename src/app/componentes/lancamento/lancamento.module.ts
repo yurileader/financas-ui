@@ -8,7 +8,9 @@ import { LancamentosRoutes } from './lancamentos-routing.module';
 
 import { TableModule } from 'primeng/table';
 import {CardModule} from 'primeng/card';
-
+import {InputTextModule} from 'primeng/inputtext';
+import {ButtonModule} from 'primeng/button';
+import {TooltipModule} from 'primeng/tooltip';
 
 
 @NgModule({
@@ -20,7 +22,11 @@ import {CardModule} from 'primeng/card';
     RouterModule,
     LancamentosRoutes,
     TableModule,
-    CardModule
+    CardModule,
+    InputTextModule,
+    ButtonModule,
+    TooltipModule
+
   ],
   exports: [LancamentoComponent],
   providers:[LancamentosService]
