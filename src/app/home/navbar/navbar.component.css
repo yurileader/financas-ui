@@ -6,25 +6,26 @@
     rgba(9, 9, 121, 1) 16%,
     rgba(0, 212, 255, 1) 100%
   );
-  margin: 0;
   box-shadow: 10px 5px 5 px black;
-}
-
-.navbar-menu-icon {
-  font-size: 2rem;
-  color: white;
-  cursor: pointer;
+  height: 50px;
 }
 
 .navbar-menu {
   display: flex;
   align-items: center;
+  margin-top: 5px;
 }
 .navbar-menu h1 {
   color: white;
   margin-left: 40%;
   user-select: none;
   font-size: 2rem;
+}
+
+.navbar-menu-icon {
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
 }
 
 .lista-menu {
