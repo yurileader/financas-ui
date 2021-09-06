@@ -7,6 +7,7 @@ import { LancamentoComponent } from './lancamento/lancamento.component';
 import { LancamentosRoutes } from './lancamentos-routing.module';
 
 import { TableModule } from 'primeng/table';
+import {CardModule} from 'primeng/card';
 
 
 
@@ -18,7 +19,8 @@ import { TableModule } from 'primeng/table';
     CommonModule,
     RouterModule,
     LancamentosRoutes,
-    TableModule
+    TableModule,
+    CardModule
   ],
   exports: [LancamentoComponent],
   providers:[LancamentosService]
