@@ -6,9 +6,15 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () =>
-      import('./componentes/lancamento/lancamento.module').then(
-        (m) => m.LancamentoModule
+      import('./componentes/lancamento/lancamento.module')
+      .then((m) => m.LancamentoModule
       ),
+  },
+  {
+    path: 'pessoa',
+    loadChildren: () =>
+      import('./componentes/pessoa/pessoa.module')
+      .then((m) => m.PessoaModule),
   },
 ];
 
