@@ -1,1 +1,93 @@
-<p>pessoa works!</p>
+<ng-container>
+  <div class="container">
+    <div class="p-grid">
+      <div class="mt-5 ml-3">
+        <h1>Pessoas</h1>
+      </div>
+      <div class="p-col-12">
+        <p-card>
+          <div class="mb-4">
+            <a
+              class="btn-novo-pessoa"
+              pButton
+              type="button"
+              [routerLink]="['pessoa', 'novo']"
+              label="Nova Pessoa"
+            ></a>
+          </div>
+          <p-table
+            #pessoaTab
+            [value]="pessoas"
+            [paginator]="true"
+            [rows]="5"
+            [responsive]="true"
+            [rowHover]="true"
+          >
+            <ng-template pTemplate="caption">
+              <div class="ui-helper-clearfix" style="text-align: left">
+                <i class="pi pi-search mr-3"></i>
+                <input
+                  class="input-filtro p-1"
+                  focus="true"
+                  type="text"
+                  pInputText
+                  size="50"
+                  placeholder="Filtro"
+                  (input)="pessoaTab.filterGlobal($event.target, 'contains')"
+                />
+                <button
+                  pButton
+                  type="button"
+                  class="ml-3"
+                  label="Pesquisar"
+                ></button>
+              </div>
+            </ng-template>
+
+            <ng-template pTemplate="header">
+              <tr>
+                <th class="col-data-header">Nome</th>
+                <th class="col-data-header">Cidade</th>
+                <th class="col-data-header">Estado</th>
+                <th class="col-data-header">Status</th>
+                <th class="col-data-header"></th>
+              </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-pessoa>
+              <tr>
+                <td class="col-data-content">nome</td>
+                <td class="col-data-content">cidade</td>
+                <td class="col-data-content">estado</td>
+                <td class="col-data-content">status</td>
+                <td class="col-data-content">
+                  <a
+                    [routerLink]=""
+                    pButton
+                    icon="pi pi-pencil"
+                    pTooltip="Editar"
+                    tooltipPosition="top"
+                  >
+                  </a>
+                  <button
+                    class="ml-2"
+                    pButton
+                    icon="pi pi-trash"
+                    pTooltip="Excluir"
+                    tooltipPosition="top"
+                  ></button>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </p-card>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #loading>
+  <div class="container text-center">
+    <p class="loading">Loading .... <i class="pi pi-spin pi-spinner"></i></p>
+  </div>
+</ng-template>
