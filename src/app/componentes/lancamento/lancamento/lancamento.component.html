@@ -1,8 +1,20 @@
 <ng-container *ngIf="lancamentos; else loading">
   <div class="container">
     <div class="p-grid">
-      <div>
+      <div class="mt-5 ml-3">
+        <h1>Lancamentos</h1>
+      </div>
+      <div class="p-col-12">
         <p-card>
+          <div class="mb-4">
+            <a
+              class="btn-novo-lancamento"
+              pButton
+              type="button"
+              [routerLink]="['lancamento', 'novo']"
+              label="Novo Lançamento"
+            ></a>
+          </div>
           <p-table
             #lancTab
             [value]="lancamentos"
@@ -24,13 +36,12 @@
                   placeholder="Filtro"
                   (input)="lancTab.filterGlobal($event.target, 'contains')"
                 />
-                <a
-                  class="btn-novo-lancamento"
+                <button
                   pButton
                   type="button"
-                  [routerLink]="['lancamento', 'novo']"
-                  label="Novo Lançamento"
-                ></a>
+                  class="ml-3"
+                  label="Pesquisar"
+                ></button>
               </div>
             </ng-template>
 
