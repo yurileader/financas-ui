@@ -11,7 +11,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'pessoa',
+    path: 'pessoas',
     loadChildren: () =>
       import('./componentes/pessoa/pessoa.module')
       .then((m) => m.PessoaModule),
