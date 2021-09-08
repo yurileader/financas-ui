@@ -13,5 +13,10 @@ export class PessoaComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
+    this.pessoas = this.activatedRoute.snapshot.data['pessoas'];
+    this.activatedRoute.data.subscribe((data) => {
+      console.log(data);
+
+    });
   }
 }

@@ -1,0 +1,17 @@
+.col-data-header {
+  width: 120px;
+}
+.col-icon-header{
+  width: 80px;
+}
+.col-data-content {
+  text-align: center;
+}
+
+.col-valor-content {
+  text-align: right;
+}
+
+.btn-novo-pessoa {
+  float: right
+}
