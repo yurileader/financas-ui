@@ -1,22 +1,22 @@
 import { LancamentosService } from './../../core/services/lancamentos.service';
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule, LOCALE_ID } from '@angular/core';
+import { CommonModule, registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
 import { RouterModule } from '@angular/router';
 
 import { LancamentoComponent } from './lancamento/lancamento.component';
 import { LancamentosRoutes } from './lancamentos-routing.module';
 
 import { TableModule } from 'primeng/table';
-import {CardModule} from 'primeng/card';
-import {InputTextModule} from 'primeng/inputtext';
-import {ButtonModule} from 'primeng/button';
-import {TooltipModule} from 'primeng/tooltip';
+import { CardModule } from 'primeng/card';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
+import { TooltipModule } from 'primeng/tooltip';
 
+registerLocaleData(localePt, 'pt-BR');
 
 @NgModule({
-  declarations: [
-    LancamentoComponent
-  ],
+  declarations: [LancamentoComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -25,10 +25,9 @@ import {TooltipModule} from 'primeng/tooltip';
     CardModule,
     InputTextModule,
     ButtonModule,
-    TooltipModule
-
+    TooltipModule,
   ],
   exports: [LancamentoComponent],
-  providers:[LancamentosService]
+  providers: [LancamentosService, { provide: LOCALE_ID, useValue: 'pt-BR' }],
 })
-export class LancamentoModule { }
+export class LancamentoModule {}

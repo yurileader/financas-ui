@@ -67,10 +67,10 @@
                 <td
                   class="col-valor-content"
                   [style.color]="
-                    lancamento.tipo === 'DESPEZA' ? 'tomato' : 'dodgerBlue'
+                    lancamento.tipo === 'DESPEZA' ? 'tomato' : 'DarkGreen'
                   "
                 >
-                  {{ lancamento.valor }}
+                  {{ lancamento.valor | currency:'BRL':true }}
                 </td>
                 <td class="col-data-content">
                   <a
