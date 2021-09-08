@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'home' },
+  { path: '', pathMatch: 'full', redirectTo: 'lancamentos' },
   {
-    path: 'home',
+    path: 'lancamentos',
     loadChildren: () =>
       import('./componentes/lancamento/lancamento.module')
       .then((m) => m.LancamentoModule
