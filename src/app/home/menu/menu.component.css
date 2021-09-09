@@ -16,7 +16,15 @@
   left: 0;
 }
 
-#icon-close{
+.active-menu .overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+}
+#icon-close {
   display: flex;
   justify-content: flex-end;
   cursor: pointer;
