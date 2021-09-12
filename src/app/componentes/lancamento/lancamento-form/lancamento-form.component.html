@@ -6,11 +6,13 @@
           <h1>Novo Lancamento</h1>
         </div>
 
-        <div class="col-12 mt-5">
+        <div class="col-12 mt-5 ml-1">
           <p-selectButton
+            #tipo
             [options]="stateOptions"
             optionLabel="label"
             optionValue="value"
+            formControlName="tipoLancamento"
           ></p-selectButton>
         </div>
 
@@ -22,15 +24,19 @@
               type="date"
               name="vencimentoInput"
               id="vencimentoInput"
+              formControlName="dataVencimento"
             />
           </div>
-          <div class="col-6">
-            <label for="recebimentoInput">Recebimento</label>
+          <div class="col-6 p-fluid">
+            <label for="recebimentoInput">{{
+              tipo.value === "RECEITA" ? "Recebimento" : "Pagamento"
+            }}</label>
             <input
               pInputText
               type="date"
               name="recebimentoInput"
               id="recebimentoInput"
+              formControlName="dataRecebimento"
             />
           </div>
         </div>
@@ -41,40 +47,64 @@
             type="text"
             name="descricaoInput"
             id="descricaoInput"
+            formControlName="descricao"
           />
         </div>
         <div class="col-4 p-fluid">
           <label for="valorInput">Valor</label>
-          <input
-            pInputText
-            type="number"
-            name="valorInput"
-            id="valorInput"
+          <p-inputNumber
+            inputId="input-valor"
+            mode="decimal"
+            locale="pt-BR"
+            [minFractionDigits]="2"
+            formControlName="valor"
             placeholder="0,00"
-          />
+          >
+          </p-inputNumber>
         </div>
 
         <div class="col-6 p-fluid">
           <label for="categoriaInput">Categoria</label>
-          <input
-            pInputText
-            type="text"
-            name="categoriaInput"
-            id="categoriaInput"
-          />
+          <p-dropdown
+            [options]="categorias"
+            optionLabel="name"
+            formControlName="categoria"
+            placeholder="Selecione"
+          ></p-dropdown>
         </div>
         <div class="col-6 p-fluid">
           <label for="pessoaInput">Pessoa</label>
-          <input pInputText type="text" name="pessoaInput" id="pessoaInput" />
+          <p-dropdown
+            [options]="pessoas"
+            optionLabel="name"
+            formControlName="pessoa"
+            placeholder="Selecione"
+          ></p-dropdown>
         </div>
 
         <div class="col-12 p-fluid">
-          <textarea [rows]="7" [cols]="100" pInputTextarea></textarea>
+          <textarea
+            [rows]="4"
+            pInputTextarea
+            [cols]="100"
+            formControlName="observacacao"
+          ></textarea>
         </div>
 
-        <div class="col-3">
-          <button pButton type="button" label="Salvar"></button>
-          <button pButton type="button" label="Cancelar" class="ml-2"></button>
+        <div class="col-12">
+          <button
+            pButton
+            type="submit"
+            label="Salvar"
+            disabled="lancamentoForm.invalid"
+          ></button>
+          <button
+            pButton
+            type="button"
+            label="Cancelar"
+            class="ml-2 p-button-danger"
+            [routerLink]="['/lancamentos']"
+          ></button>
         </div>
       </div>
     </form>

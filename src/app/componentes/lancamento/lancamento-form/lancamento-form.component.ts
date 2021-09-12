@@ -1,3 +1,4 @@
+import { LancamentosService } from './../../../core/services/lancamentos.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
@@ -8,16 +9,39 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class LancamentoFormComponent implements OnInit {
   lancamentoForm!: FormGroup;
-  stateOptions!: any[];
-  constructor(private fb: FormBuilder) {}
+  stateOptions = [
+    { label: 'Receita', value: 'RECEITA' },
+    { label: 'Despesa', value: 'DESPESA' },
+  ];
+
+  categorias = [
+    {name: 'Gasolina', code: 'gasolina'},
+    {name: 'Transporte', code: 'transporte'},
+    {name: 'Alimentação', code: 'alimentacao'}
+];
+
+  pessoas = [
+    {name: 'João', code: 'joao'},
+    {name: 'Millene', code: 'millene'},
+    {name: 'Yuri', code: 'yuri'}
+  ]
+  constructor(
+    private fb: FormBuilder,
+    private lancamentosService: LancamentosService
+  ) {}
 
   ngOnInit(): void {
-    this.stateOptions = [
-      { label: 'Vencimento', value: 'Vencimento' },
-      { label: 'Recebimento', value: 'Recebimento' },
-    ];
     this.lancamentoForm = this.fb.group({
-      dataVencimento: [new Date()]
+      tipoLancamento: [''],
+      dataVencimento: [new Date()],
+      dataRecebimento: [''],
+      descricao: [''],
+      valor: [''],
+      categoria: [''],
+      pessoa: [''],
+      observacacao: [''],
     });
   }
+
+  salvar() {}
 }
