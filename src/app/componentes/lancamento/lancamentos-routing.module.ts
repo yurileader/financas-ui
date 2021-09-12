@@ -1,3 +1,4 @@
+import { LancamentoFormComponent } from './lancamento-form/lancamento-form.component';
 import { LancamentoListResolver } from './../../core/guards/lancamento-list.resolver';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -10,7 +11,7 @@ const routes: Routes = [
     resolve: {
       lancamentos: LancamentoListResolver,
     },
-  },
+  },{path: 'novo', component: LancamentoFormComponent}
 ];
 
 @NgModule({

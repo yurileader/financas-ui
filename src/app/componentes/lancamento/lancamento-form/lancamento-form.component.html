@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="card">
+    <form [formGroup]="lancamentoForm">
+      <div class="grid">
+        <div class="col-12 p-fluid mt-5">
+          <h1>Novo Lancamento</h1>
+        </div>
+
+        <div class="col-12 mt-5">
+          <p-selectButton
+            [options]="stateOptions"
+            optionLabel="label"
+            optionValue="value"
+          ></p-selectButton>
+        </div>
+
+        <div class="grid ml-1 mt-2">
+          <div class="col-6 p-fluid">
+            <label for="vencimentoInput">Vencimento</label>
+            <input
+              pInputText
+              type="date"
+              name="vencimentoInput"
+              id="vencimentoInput"
+            />
+          </div>
+          <div class="col-6">
+            <label for="recebimentoInput">Recebimento</label>
+            <input
+              pInputText
+              type="date"
+              name="recebimentoInput"
+              id="recebimentoInput"
+            />
+          </div>
+        </div>
+        <div class="col-8 p-fluid">
+          <label for="descricaoInput">Descrição</label>
+          <input
+            pInputText
+            type="text"
+            name="descricaoInput"
+            id="descricaoInput"
+          />
+        </div>
+        <div class="col-4 p-fluid">
+          <label for="valorInput">Valor</label>
+          <input
+            pInputText
+            type="number"
+            name="valorInput"
+            id="valorInput"
+            placeholder="0,00"
+          />
+        </div>
+
+        <div class="col-6 p-fluid">
+          <label for="categoriaInput">Categoria</label>
+          <input
+            pInputText
+            type="text"
+            name="categoriaInput"
+            id="categoriaInput"
+          />
+        </div>
+        <div class="col-6 p-fluid">
+          <label for="pessoaInput">Pessoa</label>
+          <input pInputText type="text" name="pessoaInput" id="pessoaInput" />
+        </div>
+
+        <div class="col-12 p-fluid">
+          <textarea [rows]="7" [cols]="100" pInputTextarea></textarea>
+        </div>
+
+        <div class="col-3">
+          <button pButton type="button" label="Salvar"></button>
+          <button pButton type="button" label="Cancelar" class="ml-2"></button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
