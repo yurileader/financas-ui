@@ -1,6 +1,7 @@
 export interface Pessoa {
   id:number;
   nome: string;
+  endereco: Endereco
 }
 
 export interface Endereco {
