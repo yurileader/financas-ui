@@ -1,7 +1,9 @@
+import { Pessoa } from './../../../core/models/pessoa';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { PessoasService } from './../../../core/services/pessoas.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pessoa-form',
@@ -12,19 +14,35 @@ export class PessoaFormComponent implements OnInit {
   pessoaForm!: FormGroup;
   constructor(
     private fb: FormBuilder,
-    private pessoasService: PessoasService
+    private pessoasService: PessoasService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.pessoaForm = this.fb.group({
-      nome: [''],
-      logradouro: [''],
-      numero: [''],
-      complemento: [''],
-      bairro: [''],
-      cep: [''],
-      cidade: [''],
-      estado: [''],
+      nome: ['', [Validators.required, Validators.minLength(5)]],
+      endereco: this.fb.group({
+        logradouro: [''],
+        numero: [''],
+        complemento: [''],
+        bairro: [''],
+        cep: [''],
+        cidade: [''],
+        estado: [''],
+      }),
     });
+  }
+
+  cadastrar() {
+    if (this.pessoaForm.valid) {
+      const pessoa = this.pessoaForm.getRawValue() as Pessoa;
+      console.log(pessoa.endereco);
+      this.pessoasService.cadastrar(pessoa).subscribe(
+        () => {
+          this.router.navigate(['/pessoas']);
+        },
+        (error) => console.log(error)
+      );
+    }
   }
 }
