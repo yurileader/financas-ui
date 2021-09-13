@@ -11,6 +11,7 @@ import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { TooltipModule } from 'primeng/tooltip';
+import {InputMaskModule} from 'primeng/inputmask';
 
 @NgModule({
   declarations: [PessoaComponent, PessoaFormComponent],
@@ -22,7 +23,8 @@ import { TooltipModule } from 'primeng/tooltip';
     InputTextModule,
     ButtonModule,
     TooltipModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    InputMaskModule
   ],
   exports: [PessoaComponent, PessoaFormComponent],
 })
