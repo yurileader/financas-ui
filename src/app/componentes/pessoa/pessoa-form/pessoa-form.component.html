@@ -1,58 +1,142 @@
 <div class="container">
-  <form [formGroup]="pessoaForm" (ngSubmit)="cadastrar()" >
+  <form [formGroup]="pessoaForm" (ngSubmit)="cadastrar()">
     <div class="grid">
       <div class="col-12 mt-5">
         <h1>Nova Pessoa</h1>
       </div>
-      {{pessoaForm.value| json}}
       <div class="col-12 p-fluid mt-3 ml-1">
         <label for="nomeInput">Nome</label>
-        <input pInputText type="text" id="nomeInput" formControlName="nome"/>
+        <input
+          autocomplete="off"
+          pInputText
+          type="text"
+          id="nomeInput"
+          formControlName="nome"
+        />
+        <small
+          *ngIf="
+            pessoaForm.get('nome')?.errors?.minlength &&
+            pessoaForm.get('nome')?.touched
+          "
+          id="nomeInput"
+          class="p-error"
+          >Por favor informe o nome completo.</small
+        >
+        <small
+          *ngIf="
+            pessoaForm.get('nome')?.errors?.required &&
+            pessoaForm.get('nome')?.touched
+          "
+          id="nomeInput"
+          class="p-error"
+          >O nome é obrigatorio.</small
+        >
       </div>
       <div class="container grid ml-1" formGroupName="endereco">
         <div class="col-8 p-fluid">
           <label for="logradouro">Logradouro</label>
-          <input pInputText type="text" id="logradouro" formControlName="logradouro" />
+          <input
+            pInputText
+            type="text"
+            id="logradouro"
+            formControlName="logradouro"
+          />
+          <small
+            *ngIf="
+              pessoaForm.get('endereco.logradouro')?.errors?.minlength &&
+              pessoaForm.get('endereco.logradouro')?.touched
+            "
+            id="nomeInput"
+            class="p-error"
+            >Por favor informe um endereço valido.</small
+          >
         </div>
         <div class="col-4 p-fluid">
           <label for="numeroInput">Numero</label>
-          <input pInputText type="number" id="numeroInput" formControlName="numero" />
+          <input
+            pInputText
+            type="number"
+            id="numeroInput"
+            formControlName="numero"
+          />
+          <small
+            *ngIf="
+              pessoaForm.get('endereco.numero')?.errors?.required &&
+              pessoaForm.get('endereco.numero')?.touched
+            "
+            id="nomeInput"
+            class="p-error"
+            >Por favor informe o numero.</small
+          >
         </div>
         <div class="col-4 p-fluid">
           <label for="complementoInput">Complemento</label>
-          <input pInputText type="text" id="complementoInput" formControlName="complemento"/>
+          <input
+            pInputText
+            type="text"
+            id="complementoInput"
+            formControlName="complemento"
+          />
         </div>
         <div class="col-4 p-fluid">
           <label for="bairroInput">Bairro</label>
-          <input pInputText type="text" id="bairroInput" formControlName="bairro" />
+          <input
+            pInputText
+            type="text"
+            id="bairroInput"
+            formControlName="bairro"
+          />
         </div>
         <div class="col-4 p-fluid">
           <label for="cepInput">Cep</label>
-          <p-inputMask  formControlName="cep" id="cepInput" mask="99999-999"></p-inputMask>
+          <p-inputMask
+            formControlName="cep"
+            id="cepInput"
+            mask="99999-999"
+          ></p-inputMask>
+          <small
+            *ngIf="
+              pessoaForm.get('endereco.cep')?.errors?.required &&
+              pessoaForm.get('endereco.cep')?.touched
+            "
+            id="nomeInput"
+            class="p-error"
+            >Por favor informe um cep valido.</small
+          >
         </div>
         <div class="col-6 p-fluid">
           <label for="cidadeInput">Cidade</label>
-          <input pInputText type="text" id="cidadeInput" formControlName="cidade"/>
+          <input
+            pInputText
+            type="text"
+            id="cidadeInput"
+            formControlName="cidade"
+          />
         </div>
         <div class="col-6 p-fluid">
           <label for="estadoInput">Estado</label>
-          <input pInputText type="text" id="estadoInput" formControlName="estado" />
+          <input
+            pInputText
+            type="text"
+            id="estadoInput"
+            formControlName="estado"
+          />
         </div>
       </div>
       <div class="col-12">
         <button
-            pButton
-            type="submit"
-            label="Salvar"
-            [disabled]="pessoaForm.invalid"
-          ></button>
-          <button
-            pButton
-            type="button"
-            label="Cancelar"
-            class="ml-2 p-button-danger"
-            [routerLink]="['/pessoas']"
-          ></button>
+          pButton
+          type="submit"
+          label="Salvar"
+          [disabled]="pessoaForm.invalid"
+        ></button>
+        <button
+          pButton
+          type="button"
+          label="Cancelar"
+          class="ml-2 p-button-danger"
+          [routerLink]="['/pessoas']"
+        ></button>
       </div>
     </div>
   </form>

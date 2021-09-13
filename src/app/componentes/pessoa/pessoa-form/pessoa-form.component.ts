@@ -22,11 +22,11 @@ export class PessoaFormComponent implements OnInit {
     this.pessoaForm = this.fb.group({
       nome: ['', [Validators.required, Validators.minLength(5)]],
       endereco: this.fb.group({
-        logradouro: [''],
-        numero: [''],
+        logradouro: ['', [Validators.required, Validators.minLength(6)]],
+        numero: ['', [Validators.required]],
         complemento: [''],
         bairro: [''],
-        cep: [''],
+        cep: ['', [Validators.required]],
         cidade: [''],
         estado: [''],
       }),
@@ -36,7 +36,6 @@ export class PessoaFormComponent implements OnInit {
   cadastrar() {
     if (this.pessoaForm.valid) {
       const pessoa = this.pessoaForm.getRawValue() as Pessoa;
-      console.log(pessoa.endereco);
       this.pessoasService.cadastrar(pessoa).subscribe(
         () => {
           this.router.navigate(['/pessoas']);
