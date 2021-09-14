@@ -33,7 +33,7 @@ export class PessoaFormComponent implements OnInit {
     });
   }
 
-  cadastrar() {
+  salvar() {
     if (this.pessoaForm.valid) {
       const pessoa = this.pessoaForm.getRawValue() as Pessoa;
       this.pessoasService.cadastrar(pessoa).subscribe(
