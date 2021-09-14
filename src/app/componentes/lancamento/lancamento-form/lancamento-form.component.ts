@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { Lancamento } from './../../../core/models/lancamento';
 import { LancamentosService } from './../../../core/services/lancamentos.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -15,19 +17,20 @@ export class LancamentoFormComponent implements OnInit {
   ];
 
   categorias = [
-    {name: 'Gasolina', code: 'gasolina'},
-    {name: 'Transporte', code: 'transporte'},
-    {name: 'Alimentação', code: 'alimentacao'}
-];
+    { name: 'Gasolina', code: 'gasolina' },
+    { name: 'Transporte', code: 'transporte' },
+    { name: 'Alimentação', code: 'alimentacao' },
+  ];
 
   pessoas = [
-    {name: 'João', code: 'joao'},
-    {name: 'Millene', code: 'millene'},
-    {name: 'Yuri', code: 'yuri'}
-  ]
+    { name: 'João', code: 'joao' },
+    { name: 'Millene', code: 'millene' },
+    { name: 'Yuri', code: 'yuri' },
+  ];
   constructor(
     private fb: FormBuilder,
-    private lancamentosService: LancamentosService
+    private lancamentosService: LancamentosService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -43,5 +46,15 @@ export class LancamentoFormComponent implements OnInit {
     });
   }
 
-  salvar() {}
+  salvar() {
+    if (this.lancamentoForm.valid) {
+      const lancamento = this.lancamentoForm.getRawValue() as Lancamento;
+      this.lancamentosService.cadastrar(lancamento).subscribe(
+        () => {
+          this.router.navigate(['/lancamentos']);
+        },
+        (error) => console.log(error)
+      );
+    }
+  }
 }

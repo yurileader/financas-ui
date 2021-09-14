@@ -1,6 +1,6 @@
 <div class="container">
   <div class="card">
-    <form [formGroup]="lancamentoForm">
+    <form [formGroup]="lancamentoForm" (ngSubmit)="salvar()">
       <div class="grid">
         <div class="col-12 p-fluid mt-5">
           <h1>Novo Lancamento</h1>
