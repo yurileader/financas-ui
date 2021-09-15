@@ -90,9 +90,11 @@
         <div class="col-4 p-fluid">
           <label for="cepInput">Cep</label>
           <p-inputMask
+            #inputCep
             formControlName="cep"
             id="cepInput"
             mask="99999-999"
+            (onBlur)="buscarCep()"
           ></p-inputMask>
           <small
             *ngIf="
@@ -115,12 +117,13 @@
         </div>
         <div class="col-6 p-fluid">
           <label for="estadoInput">Estado</label>
-          <input
-            pInputText
-            type="text"
-            id="estadoInput"
+          <p-dropdown
+            [options]="estados"
+            [autoDisplayFirst]="false"
+            optionLabel="name"
             formControlName="estado"
-          />
+            placeholder="Selecione"
+          ></p-dropdown>
         </div>
       </div>
       <div class="col-12">
