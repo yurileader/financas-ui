@@ -14,8 +14,6 @@ export class MenuComponent implements OnInit {
 
   abreMenu(){
     this.mostraMenu = !this.mostraMenu;
-    console.log("Clicou");
-
   }
 
 }
